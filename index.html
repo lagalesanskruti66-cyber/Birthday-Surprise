@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Baby❤️</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+font-family:Comic Sans MS,cursive;
+background:linear-gradient(135deg,#ffd6e7,#ffeaf5);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+}
+
+.card{
+background:white;
+width:420px;
+padding:30px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 0 20px hotpink;
+position:relative;
+}
+
+h1{
+color:#ff1493;
+}
+
+h2{
+color:#ff4d88;
+}
+
+button{
+paddinsg:12px 25px;
+font-size:18px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+margin:10px;
+}
+
+.option{
+background:#ff4d88;
+color:white;
+}
+
+#noBtn{
+background:#777;
+color:white;
+position:relative;
+margin-top:20px;
+}
+
+input,textarea{
+width:90%;
+padding:12px;
+font-size:18px;
+border-radius:15px;
+border:2px solid hotpink;
+outline:none;
+}
+
+.hidden{
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎂 Happy Birthday Babu ❤️</h1>
+
+<h2 id="question">
+Are you ready for your surprise Shona..? 🎁
+</h2>
+
+<div id="buttons">
+
+<button class="option" onclick="startQuiz()">
+YES ❤️
+</button>
+
+<button id="noBtn" onmouseover="moveNo()">
+NO 💔
+</button>
+
+</div>
+
+<div id="answerBox" class="hidden">
+
+<button class="option" id="op1"></button>
+
+<button class="option" id="op2"></button>
+
+</div>
+
+<div id="textAnswer" class="hidden">
+
+<textarea id="loveText"
+rows="5"
+placeholder="Write your answer here ❤️"></textarea>
+
+<br><br>
+
+<button class="option" onclick="saveText()">
+Next ❤️
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let current=0;
+
+let answers=[];
+
+const questions=[
+{
+q:"🥰 Who is your favorite person?",
+a1:"❤️ Me",
+a2:"💙 Ganu"
+},
+
+{
+q:"😘 Are you excited to see what's next?",
+a1:"🤩 Super Excited",
+a2:"😊 A Little"
+},
+
+{
+q:"❤️ Will you stay with me forever?",
+a1:"💍 Forever",
+a2:"❤️ Always"
+},
+
+{
+q:"🌍 Will you travel the world with me someday?",
+a1:"✈️ Yes",
+a2:"🏖️ Definitely"
+},
+
+{
+q:"🎬 Will you watch movies with me forever?",
+a1:"🍿 Every Weekend",
+a2:"🎥 Of Course"
+},
+
+{
+q:"📸 Ready to relive our beautiful memories?",
+a1:"💖 Yes",
+a2:"🥹 Can't Wait"
+},
+
+{
+q:"🎁 Want to unlock the next surprise?",
+a1:"🔓 Open It",
+a2:"🎉 Absolutely"
+},
+
+
+{
+q:"❤️ Do you know how much I love you?",
+a1:"♾️ More Than Infinity",
+a2:"🌎 More Than The World"
+},
+
+{
+q:"😘 Can I steal one birthday kiss?",
+a1:"💋 Yes",
+a2:"😘 Two Kisses"
+},
+
+{
+q:"🫶 Do you promise to take care of yourself?",
+a1:"🤝 I Promise",
+a2:"❤️ Always"
+},
+
+{
+q:"😊 Are you smiling right now?",
+a1:"😄 Yes",
+a2:"😁 Of Course"
+},
+
+{
+q:"🎂 Are you enjoying your birthday?",
+a1:"🥳 Loving It",
+a2:"🎉 Best Birthday Ever"
+},
+
+{
+q:"💝 Ready for the final surprise?",
+a1:"🎁 I'm Ready",
+a2:"✨ Let's Go"
+},
+
+{
+q:"💌 Tell me one secret",
+type:"text"
+},
+
+{
+q:"❤️ How much do you love me?",
+type:"text"
+}
+
+];
+function startQuiz(){
+
+document.getElementById("buttons").classList.add("hidden");
+document.getElementById("answerBox").classList.remove("hidden");
+
+showQuestion();
+
+}
+
+function showQuestion(){
+
+if(current>=questions.length){
+
+finishQuiz();
+
+return;
+
+}
+
+document.getElementById("question").innerHTML=questions[current].q;
+
+if(questions[current].type=="text"){
+
+document.getElementById("answerBox").classList.add("hidden");
+
+document.getElementById("textAnswer").classList.remove("hidden");
+
+return;
+
+}
+
+document.getElementById("op1").innerHTML=questions[current].a1;
+
+document.getElementById("op2").innerHTML=questions[current].a2;
+
+document.getElementById("op1").onclick=function(){
+
+answers.push(questions[current].a1);
+
+current++;
+
+showQuestion();
+
+}
+
+document.getElementById("op2").onclick=function(){
+
+answers.push(questions[current].a2);
+
+current++;
+
+showQuestion();
+
+}
+
+}
+
+function saveText(){
+
+answers.push(document.getElementById("loveText").value);
+
+document.getElementById("loveText").value="";
+
+current++;
+
+showQuestion();
+
+}
+function finishQuiz(){
+
+document.body.innerHTML=
+"<div class='card'>"+
+"<h1>🎉 HAPPY BIRTHDAY BABU ❤️</h1>"+
+"<h2>Thank You For Playing My Little Quiz 🥹💕</h2>"+
+"<p style='font-size:22px;margin-top:20px;'>Now it's finally time to open your birthday surprise... 🎁❤️</p>"+
+"</div>";
+setTimeout(function(){
+
+location.href="gift.html";
+
+},3000);
+
+}
+
+function showSummary(){
+
+let txt="<h1>Your Answers ❤️</h1>";
+
+for(let i=0;i<answers.length;i++){
+
+txt+="<p>"+(i+1)+". "+answers[i]+"</p>";
+
+}
+
+txt+="<br><button class='option' onclick=\"location.href='gift.html'\">Open My Birthday Gift 💌</button>";
+
+document.body.innerHTML="<div class='card'>"+txt+"</div>";
+
+}
+
+function showLetter(){
+
+document.body.innerHTML=
+"<div class='card'>"+
+"<h1>🎂 Happy Birthday Babu ❤️</h1>"+
+"<p style='font-size:20px'>"+
+"You are one of the most special people in my life. ❤️<br><br>"+
+"Thank you for every smile, every laugh and every beautiful memory. 🥹💕<br><br>"+
+"I hope this year brings you happiness, success and lots of love. 🌸<br><br>"+
+"I'll always cheer for you and make more beautiful memories together. ❤️<br><br>"+
+"Happy Birthday! 🎂🥳"+
+"</p>"+
+"</div>";
+
+}
+
+function moveNo(){
+
+let b=document.getElementById("noBtn");
+
+b.style.left=Math.random()*250+"px";
+
+b.style.top=Math.random()*150+"px";
+
+}
+
+</script>
+
+</body>
+</html>
