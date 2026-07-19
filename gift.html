@@ -190,10 +190,6 @@ opacity:0;
 style="padding:10px 20px;border-radius:20px;border:none;">
 🎵 Play Music ❤️
 </button>
-
-
-
-
 <div class="card">
 
 <h2>
@@ -205,9 +201,6 @@ A special surprise made with love.
 </p>
 
 </div>
-
-
-</div><!-- PART 2 : MUSIC + SLIDESHOW AREA -->
 
 
 <div class="card" id="memorySection">
@@ -222,7 +215,7 @@ A special surprise made with love.
 
 
 <img id="photo"
-src="photo1.jpg"
+src="Photo1.jpg"
 style="width:100%;max-width:500px;border-radius:20px;">
 
 
@@ -331,42 +324,42 @@ music.play().catch(function(){
 let memories = [
 
 {
-image:"photo1.jpg",
+image:"Photo1.jpg",
 caption:"Our First Picture Together ❤️",
 date:"14 April 2025",
 text:"When we were just friends, we had no idea that one day we'd become each other's favorite person. Looking back, this wasn't just a photo—it was the beginning of our forever. ❤️"
 },
 
 {
-image:"photo2.jpg",
+image:"Photo2.jpg",
 caption:"Our Cultural Fest ❤️",
 date:"23 April 2025",
 text:"Our cultural fest wasn't just another college event for me. It was the day I looked at you differently and realized... I had fallen for my best friend. 💖"
 },
 
 {
-image:"photo3.jpg",
+image:"Photo3.jpg",
 caption:"The Unspoken Moment ❤️",
 date:"3 May 2025",
 text:"Sometimes love speaks through the eyes before words ever do. 💖"
 },
 
 {
-image:"photo4.jpg",
+image:"Photo4.jpg",
 caption:"Our First Hand Hold ❤️",
 date:"18 February 2026",
 text:"I'll always remember the first time you held my hand. I was nervous, happy, and in that moment, I knew it was the beginning of countless beautiful memories. 🥹❤️"
 },
 
 {
-image:"photo5.jpg",
+image:"Photo5.jpg",
 caption:"Our First Date ❤️",
 date:"26 February 2026",
 text:"Our first date, our first ride, and a memory I'll cherish forever. ❤️"
 },
 
 {
-image:"photo6.jpg",
+image:"Photo6.jpg",
 caption:"If We Had Met as Kids ❤️",
 date:"",
 text:"Maybe we didn't meet in childhood, but this is how I imagine we would've looked together. ❤️🧸"
@@ -377,7 +370,7 @@ text:"Maybe we didn't meet in childhood, but this is how I imagine we would've l
 
 let photoIndex = 0;
 
-
+document.getElementById("photo").src = memories[0].image;
 
 let slideshowTimer = setInterval(function(){
 
@@ -858,6 +851,7 @@ Sanskruti ❤️🌸</b>
 
 </p>
 
+</div>
 </div>
 
 </body>
